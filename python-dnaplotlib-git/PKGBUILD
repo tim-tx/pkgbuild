@@ -1,0 +1,31 @@
+# Python package author: Thomas Gorochowski,  <tom@chofski.co.uk>
+_pkgname=python-dnaplotlib
+pkgname=${_pkgname}-git
+pkgver=1.0.r9.g1f46ada
+pkgrel=1
+pkgdesc="Genetic design visualization"
+arch=(any)
+url="https://github.com/VoigtLab/dnaplotlib"
+license=('MIT')
+depends=("python-matplotlib")
+makedepends=("python" "python-setuptools")
+provides=("${_pkgname}")
+conflicts=("${_pkgname}")
+source=("git://github.com/VoigtLab/dnaplotlib.git")
+sha256sums=('SKIP')
+
+pkgver() {
+    cd "${srcdir}/dnaplotlib"
+    git describe --long | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
+build() {
+    cd "${srcdir}/dnaplotlib"
+    python setup.py build
+}
+
+package() {
+    cd "${srcdir}/dnaplotlib"
+    python setup.py install --root="$pkgdir/" --optimize=1 --skip-build
+    install -Dm644 LICENSE.txt "$pkgdir/usr/share/licenses/${_pkgname}/LICENSE.txt"
+}
