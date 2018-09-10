@@ -1,7 +1,7 @@
 # Python package author: Thomas Gorochowski,  <tom@chofski.co.uk>
 _pkgname=python-dnaplotlib
 pkgname=${_pkgname}-git
-pkgver=1.0.r9.g1f46ada
+pkgver=1.0.r16.ga382ec0
 pkgrel=1
 pkgdesc="Genetic design visualization"
 arch=(any)
