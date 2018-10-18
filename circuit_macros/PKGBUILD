@@ -1,0 +1,23 @@
+# Maintainer: lainme <lainme993@gmail.com>
+# Modified from latex-beamer pkgbuild by Daniel Ehlers <danielehlers@mindeye.net>
+
+pkgname=circuit_macros
+pkgver=8.5.1
+pkgrel=1
+pkgdesc='Tools for drawing electric circuits and other line diagrams.'
+arch=('any')
+url='https://ece.uwaterloo.ca/~aplevich/Circuit_macros/'
+license=('GPL')
+depends=('texlive-core' 'dpic' 'm4')
+conflicts=()
+install='circuit_macros.install'
+source=("https://ece.uwaterloo.ca/~aplevich/Circuit_macros/Circuit_macros.tar.gz")
+md5sums=('369d63939b6e79de2b8fe2ebc503b6c8')
+
+package() {
+  cd Circuit_macros8.5.1
+
+  install -d ${pkgdir}/usr/share/texmf-dist/circuit_macros
+
+  cp -r * ${pkgdir}/usr/share/texmf-dist/circuit_macros
+}
