@@ -1,0 +1,25 @@
+pkgbase='python-mpltools'
+pkgname='python-mpltools'
+_module='mpltools'
+pkgver='0.2.0'
+pkgrel=1
+pkgdesc="Provides tools for Matplotlib that make it easier to adjust the style, choose colors, make specialized plots, etc."
+url="http://tonysyu.github.com/mpltools/"
+depends=('python' 'python-configobj')
+makedepends=('python-setuptools')
+license=('custom')
+arch=('any')
+source=("https://files.pythonhosted.org/packages/source/m/mpltools/mpltools-${pkgver}.tar.gz")
+md5sums=('97e222b4649492554e008a077a4183fb')
+
+build() {
+    cd "${srcdir}/${_module}-${pkgver}"
+    python setup.py build
+}
+
+package() {
+    depends+=()
+    cd "${srcdir}/${_module}-${pkgver}"
+    python setup.py install --root="${pkgdir}" --optimize=1 --skip-build
+    install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+}
