@@ -1,0 +1,70 @@
+pkgname=adobe-garamond-std-fonts
+
+pkgver=2.031
+pkgrel=1
+
+pkgdesc="Garamond Std fonts from the Adobe Font Folio 11"
+arch=('any')
+url="https://www.adobe.com/products/fontfolio.html"
+license=('custom')
+
+source=(
+	"local://ITCGaramondStd-BdCondIta.otf"
+	"local://ITCGaramondStd-BdCond.otf"
+	"local://ITCGaramondStd-BdIta.otf"
+	"local://ITCGaramondStd-BdNarrowIta.otf"
+	"local://ITCGaramondStd-BdNarrow.otf"
+	"local://ITCGaramondStd-Bd.otf"
+	"local://ITCGaramondStd-BkCondIta.otf"
+	"local://ITCGaramondStd-BkCond.otf"
+	"local://ITCGaramondStd-BkIta.otf"
+	"local://ITCGaramondStd-BkNarrowIta.otf"
+	"local://ITCGaramondStd-BkNarrow.otf"
+	"local://ITCGaramondStd-Bk.otf"
+	"local://ITCGaramondStd-LtCondIta.otf"
+	"local://ITCGaramondStd-LtCond.otf"
+	"local://ITCGaramondStd-LtIta.otf"
+	"local://ITCGaramondStd-LtNarrowIta.otf"
+	"local://ITCGaramondStd-LtNarrow.otf"
+	"local://ITCGaramondStd-Lt.otf"
+	"local://ITCGaramondStd-UltCondIta.otf"
+	"local://ITCGaramondStd-UltCond.otf"
+	"local://ITCGaramondStd-UltIta.otf"
+	"local://ITCGaramondStd-UltNarrowIta.otf"
+	"local://ITCGaramondStd-UltNarrow.otf"
+	"local://ITCGaramondStd-Ult.otf"
+)
+
+sha256sums=(
+	"935d85501bfffd8e8212b690506fa3d147f5cc450dff2d3ef67f09e59263f82b"
+	"6228f2168168e2502cea9235329f82983d40034f0629309bfab5777122abc438"
+	"e8c626fbe43ad40f26920cf8971bcad89fa064b5ce7bc19026f0687331193db8"
+	"08a169261bec42920ac8063a7a4b9049bdd5f7ba95edc0893106c267fd026084"
+	"bfbc01689d6454609fede8b7d9a776be4476322ecab67bc89f670926137accab"
+	"6c6d274f27b6f82866a573b78caa02479935eb65d5943410ec05da7be82cf13a"
+	"34bb92ca2126fc49ea01ee4341eee59ef018eea2eda10c723ac21b1efd0d377e"
+	"468bc1f884096e5348cfdd133f3b839009d6cdb95bf50631df74526280c0f283"
+	"1d8db1da46e3040ba4ea4ffdcfb86595e450b67ea1b8d013b94ec51b6cc9d511"
+	"6d440c73c61c610eb0dac4458f2e9de716fb8f2a698dfb16414c78c92d54f98b"
+	"6c1b1726710a67a13fa0d68d4e563c831d81f231deb3f18e0c7b638ccc6c6f83"
+	"bfba16876437ac6edbbacb2971c1580f5bf6681526f24b0c6e38af9f975c1220"
+	"f3000245527aee0d29c4792dbb1dd4ca72905803c5a560d05fbd507d94aaf268"
+	"6f40aa373196e41888b946ec7733c283ce84fc4f9f09972d971e339dbb4894dd"
+	"05e0e18b16921b6ee69ddf81beaea8ba5c7cdf57af3216427781933235cc6c31"
+	"5e74c3c147905081b7a9579c79cc06f5750865fdec838a239781d75e7d3846b7"
+	"cdf5e67c3f0cbf5340158e3cf9a74f90758668ea95e455d29b4a8b7e969c3541"
+	"d893ebb19884f9d9aa1c0abdab4a2096de34c80f0b068d51bffbe3a7079f7826"
+	"7582b37619fbb5447bb685c087e2074028fcf2f70f7439d30dbf021ceeab8625"
+	"2f57603d7a2a11523ccf63cac261e452494bb985aefa001ea358052b9025e994"
+	"781e20c7c2aef667cafd70917f4040109db5676e7308e90855ed9ebf381448f0"
+	"b8bfa075608bcf485b48d08361497fd30a50505a9ca7650d764ffa543e457059"
+	"178c731b100de5f85d413a4b79b19b7a0792176487c7ba497e272d1d3f656d9e"
+	"9f9cace7c65ce8624e49ecfab0c1364e45f7a30a300cc94fb9593427c3329b8b"
+)
+
+package() {
+  cd ${srcdir}
+
+  install -dm755 "${pkgdir}/usr/share/fonts/OTF"
+  install -Dpm644 *.otf "${pkgdir}/usr/share/fonts/OTF/"
+}

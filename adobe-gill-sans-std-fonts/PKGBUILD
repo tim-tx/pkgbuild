@@ -1,0 +1,52 @@
+pkgname=adobe-gill-sans-std-fonts
+
+pkgver=2.020
+pkgrel=1
+
+pkgdesc="Gill Sans Std fonts from the Adobe Font Folio 11"
+arch=('any')
+url="https://www.adobe.com/products/fontfolio.html"
+license=('custom')
+
+source=(
+	"local://GillSansStd-BoldCondensed.otf"
+	"local://GillSansStd-BoldExtraCond.otf"
+	"local://GillSansStd-BoldItalic.otf"
+	"local://GillSansStd-Bold.otf"
+	"local://GillSansStd-Condensed.otf"
+	"local://GillSansStd-ExtraBoldDisp.otf"
+	"local://GillSansStd-ExtraBold.otf"
+	"local://GillSansStd-Italic.otf"
+	"local://GillSansStd-LightItalic.otf"
+	"local://GillSansStd-Light.otf"
+	"local://GillSansStd-LightShadowed.otf"
+	"local://GillSansStd.otf"
+	"local://GillSansStd-Shadowed.otf"
+	"local://GillSansStd-UltraBoldCond.otf"
+	"local://GillSansStd-UltraBold.otf"
+)
+
+sha256sums=(
+	"0eedbbca59198281b5e99be3c868ded745b155e98dfa04a883351ef586fa4bcc"
+	"eb6627b9724cb1c95d5aeab00a6fedad9d598354cda30f2b8c90217081ac1913"
+	"da0f5be039ec0de20f68f9221c47577fbd98972b7b57c9bd3f62665dcc683d43"
+	"d2e4cc9c522bd5f0d0c6e5c029b7b16c48cc8aa7d00147b83d68ab7c892f7281"
+	"6f62bfe1c5785f8c88c6593e2c340754b26234d605b8e76731bf4816a2aaff03"
+	"f204795152d3ef9b6b1b603e84defc6686e6405e1f30e9349b9f4a084c08b2f7"
+	"75f9a96fefaa1c0488951853f2a9e21fdd248aa6e2ac636aa5823e0e946cbf08"
+	"e9b22fae00d2d043a889d08440a79c2263150dceff1df729086570b76a590e8a"
+	"c0e0af0e715d53cde5ac68daa1bab6c4e8a3e00e2a026514d96039409517ce3e"
+	"8c32293045078f6bcf9fdddba210d79c559c768c5aa00d5edf1d5759836f532b"
+	"36a8783a707b3b3c108d8a1381f3508010b8c071eba0232c776702fe1e25905d"
+	"bb4d0db17aa7708ad5069e85e4a76ed744ed9ef60518021db39887db2e1c8511"
+	"adbfb23750725cbc56b3c7832bdd4430b54b2827329dd0427c3e9536853b48a1"
+	"78e7d755fa378ed712a71ebe8f593cdbb5dd8f56ce3be4442f9cf10ecb551828"
+	"abc854fcd17a4e5c50197d0fa2eca94d2103e721574aefe8e36da0c908ca74b2"
+)
+
+package() {
+  cd ${srcdir}
+
+  install -dm755 "${pkgdir}/usr/share/fonts/OTF"
+  install -Dpm644 *.otf "${pkgdir}/usr/share/fonts/OTF/"
+}

@@ -1,0 +1,62 @@
+pkgname=adobe-futura-std-fonts
+
+pkgver=2.025
+pkgrel=1
+
+pkgdesc="Futura Std fonts from the Adobe Font Folio 11"
+arch=('any')
+url="https://www.adobe.com/products/fontfolio.html"
+license=('custom')
+
+source=(
+	"local://FuturaStd-BoldOblique.otf"
+	"local://FuturaStd-Bold.otf"
+	"local://FuturaStd-BookOblique.otf"
+	"local://FuturaStd-Book.otf"
+	"local://FuturaStd-CondensedBoldObl.otf"
+	"local://FuturaStd-CondensedBold.otf"
+	"local://FuturaStd-CondensedExtraBd.otf"
+	"local://FuturaStd-CondensedLightObl.otf"
+	"local://FuturaStd-CondensedLight.otf"
+	"local://FuturaStd-CondensedOblique.otf"
+	"local://FuturaStd-Condensed.otf"
+	"local://FuturaStd-CondExtraBoldObl.otf"
+	"local://FuturaStd-ExtraBoldOblique.otf"
+	"local://FuturaStd-ExtraBold.otf"
+	"local://FuturaStd-HeavyOblique.otf"
+	"local://FuturaStd-Heavy.otf"
+	"local://FuturaStd-LightOblique.otf"
+	"local://FuturaStd-Light.otf"
+	"local://FuturaStd-MediumOblique.otf"
+	"local://FuturaStd-Medium.otf"
+)
+
+sha256sums=(
+	"fcbb00d8a377126db50ff4b0f5a53c78392ea09a2477e5e7c6c67cb8ca85b861"
+	"215c175ce595d0f42bc1f703ef94ecbf6f45dc875cdbfd7ea59d9d8b28467cf9"
+	"d93415cbaf7a4c4e8f24e12f707641159f89a28019e48474251f1354485d90dd"
+	"61f2af8ff6f2c88182142524af5c321547ea30dcc9bce77726856a45b0381fb7"
+	"45557469a38ebbb1cd9c57a43218ad75c1455d6b57c848dc1b62df15c1661cdf"
+	"b50ad266c4453d90de6686753487751d75f1d2875ed553bddc756994857a0dfa"
+	"3d8665b9bef3537188b08966231a02804fb8a908190d78ca3f0ce7c194d70a1e"
+	"69d77632276989ca940f5da69b6709881c05708657d5cf497b92855da980e02f"
+	"ed9818f26a2e96767973d219064f68c8ce0ba099a6124c1b523e5957bdfa7f7e"
+	"d5cf5492925cd890ed062a3177d8edaf26ba2a1549abfe44f0ecf706e21b70f1"
+	"61d22f5a41a57050e8d5e4dc9e3e7f6439809395ac5f839d06e5b7ae42719301"
+	"1add6bfb3380a95a98153f869876187ed990e008e9766ec51f39ecfdb964ef1e"
+	"e58a52030048df64984fdbb90857f2ff2f80f4bdab5c25022f377f2595c00c26"
+	"a4265fc326fd8b70219b84d29144e8fe160d4d3fc6c435ea780816350598568b"
+	"7b905380e1d117c24ea5d88e6cd7e46d916932beb7fdd72f18298aaf3f2d2ae9"
+	"ee27521742fcebb3316632b340f93aea68f77376c117acaf6bf45010ed1bfe21"
+	"abcd17a84b2ee04ff10b27b71386cbfec81f55357fcf3c72ddc8b0fb409b81e7"
+	"938ad3be33800ad6be8a73d4d6396e019ad98b9e125c8a12cbae358709438d8a"
+	"7c48cfddd72b2164fb924f490b20b5caf8d6fdeebd53127d85e815bda89139d7"
+	"9da271dbdb87e9fb65e66649187e87181e9585ca4b1af115e1d5549d73a5a673"
+)
+
+package() {
+  cd ${srcdir}
+
+  install -dm755 "${pkgdir}/usr/share/fonts/OTF"
+  install -Dpm644 *.otf "${pkgdir}/usr/share/fonts/OTF/"
+}
