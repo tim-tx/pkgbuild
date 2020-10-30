@@ -1,0 +1,64 @@
+pkgname=adobe-helvetica-std-fonts
+
+pkgver=2.030
+pkgrel=1
+
+pkgdesc="Helvetica Std fonts from the Adobe Font Folio 11"
+arch=('any')
+url="https://www.adobe.com/products/fontfolio.html"
+license=('custom')
+
+source=(
+	"local://HelveticaLTStd-BlkCondObl.otf"
+	"local://HelveticaLTStd-BlkCond.otf"
+	"local://HelveticaLTStd-BlkObl.otf"
+	"local://HelveticaLTStd-Blk.otf"
+	"local://HelveticaLTStd-BoldCondObl.otf"
+	"local://HelveticaLTStd-BoldCond.otf"
+	"local://HelveticaLTStd-BoldObl.otf"
+	"local://HelveticaLTStd-Bold.otf"
+	"local://HelveticaLTStd-Comp.otf"
+	"local://HelveticaLTStd-CondObl.otf"
+	"local://HelveticaLTStd-Cond.otf"
+	"local://HelveticaLTStd-ExtraComp.otf"
+	"local://HelveticaLTStd-FractionsBd.otf"
+	"local://HelveticaLTStd-Fractions.otf"
+	"local://HelveticaLTStd-LightCondObl.otf"
+	"local://HelveticaLTStd-LightCond.otf"
+	"local://HelveticaLTStd-LightObl.otf"
+	"local://HelveticaLTStd-Light.otf"
+	"local://HelveticaLTStd-Obl.otf"
+	"local://HelveticaLTStd-Roman.otf"
+	"local://HelveticaLTStd-UltraComp.otf"
+)
+
+sha256sums=(
+	"46c214ac39583ee99ac8e3922bb44b6a143ae2084d3e6466bc759e2b3a70997e"
+	"379f69b8fd3613da1ea3aae0da027a5196dbad2cdcb4ca98767590ab85535753"
+	"74c1b5df2c7ebcf6d75d3246a554c96afb9a10f84e34762a12873729b6844010"
+	"86673747d188ba550f2cb1a98ed56c3d697a538f7f7fbef81ff5cf981c5c620b"
+	"6ae72134360ab3ba3165b75ace7167c18821125c0a6a9aca8418d36f9a381ae5"
+	"c799546a4aeb25d5195a9b72bf6ad409e221744df76e3ab843f95e90f3d734c5"
+	"168adf80096be33aa91af121ed52e617d052c3d707fdb3a03b846754ae919bbe"
+	"9dfb3774ae5ecb5dc473636794560a83f833b3bc37372565ec7032a329aa9425"
+	"df1dd9876ef95ef53dd48a31fe2382dbff8039ff96b4505b506580dfe70eb83c"
+	"9e1eeea91d25fae5b89925dd483b3f841bbd469efcae626b39e4e1a9bcba6133"
+	"5618b4255c0a42a5f2ef41e235049ae9990a7e1ad4ce0c5e369908ad9e7c0cfd"
+	"31312ec6236b1d72fe82a0df8e50b4a008356577b01f8e39ae45ee0e81e18a94"
+	"04c5e4ce037b35eaa0ca7d14185c49ac6737267350b7da6001e64ff66c808be8"
+	"5285c206b5654a0377570cbce21738251d621f161fe400d229fd80220b4457c2"
+	"143d6df6f03a1fc6bb31397a9dbf7c58e892e791bf572e02ad4077c498130eb7"
+	"264e0aafb44d9bddf0c824bf3afee4b8fe4333a3ee4b8bec4a07cc463b2dfca7"
+	"bbcf8ddf7c16c73411512934e56c6518c5f216e5c35ee29b6f13f8030fa8540f"
+	"fca0b4fde33089fb6cf98ad3455f9bda754a5e25acb36d48d05fbbd774516792"
+	"3e272b304540ae7e2b156f4f4b774ca1729129eb1a8f6a4002dc0926547c5036"
+	"07adb8fdccbc6503fa095414c24a8f1992ed9380a53384c583d85c8e50315957"
+	"2b27463a6f153b6d7242cb79ee705a70edaeaf03aedc77d19b9f33418350280b"
+)
+
+package() {
+  cd ${srcdir}
+
+  install -dm755 "${pkgdir}/usr/share/fonts/OTF"
+  install -Dpm644 *.otf "${pkgdir}/usr/share/fonts/OTF/"
+}

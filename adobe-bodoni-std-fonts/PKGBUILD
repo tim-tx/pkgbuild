@@ -1,0 +1,42 @@
+pkgname=adobe-bodoni-std-fonts
+
+pkgver=2.020
+pkgrel=1
+
+pkgdesc="Bodoni Std fonts from the Adobe Font Folio 11"
+arch=('any')
+url="https://www.adobe.com/products/fontfolio.html"
+license=('custom')
+
+source=(
+	"local://BodoniStd-BoldCondensed.otf"
+	"local://BodoniStd-BoldItalic.otf"
+	"local://BodoniStd-Bold.otf"
+	"local://BodoniStd-BookItalic.otf"
+	"local://BodoniStd-Book.otf"
+	"local://BodoniStd-Italic.otf"
+	"local://BodoniStd.otf"
+	"local://BodoniStd-PosterCompressed.otf"
+	"local://BodoniStd-PosterItalic.otf"
+	"local://BodoniStd-Poster.otf"
+)
+
+sha256sums=(
+	"6d9a2d3be2087fecea68f75fb3f149e0e7008b0550740e46564f76c4dfaca533"
+	"3767853a5f4d6c3aaa51d42a586a90df9d5505f9756919bc1b06b558045e72a5"
+	"d884802b5ea660b83630b033d81f18d9806e1274558eb1d320805e0235da29df"
+	"f0ad2bf961de343459955db5554e997120f041c48f215bb79bd4ee79ac382ff1"
+	"b3e6ddd1321426f50859ce3f5b7f80f59a2e47795c80875babba3021427b190c"
+	"c4dd3a3b2bbe6f80e1ffd8f0bc778f2f9203a3cd31320c16fe0bcd0192e6932d"
+	"c5792f4391fee75c0deef87c9166daebbb76dc22e0c73caeedd3482517c2f40f"
+	"ab3f607eeac12be70fbaefc1a26c3a03a082d4acf323d4fa9c9fe3ce424dccf7"
+	"c39e908ac781594b20997908a1c07af152216fc4f4323ff154a044b6ec6903b3"
+	"242825a20e7115d5fa10e9ad56a28cd940e6a22bba80101fb5b7cbe9c810ad77"
+)
+
+package() {
+  cd ${srcdir}
+
+  install -dm755 "${pkgdir}/usr/share/fonts/OTF"
+  install -Dpm644 *.otf "${pkgdir}/usr/share/fonts/OTF/"
+}
