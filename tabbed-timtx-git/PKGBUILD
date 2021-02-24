@@ -1,0 +1,38 @@
+pkgname=tabbed-timtx-git
+_pkgname=tabbed
+pkgver=r257.e3931cc
+pkgrel=1
+pkgdesc="Simple generic tabbed fronted to xembed aware applications"
+arch=('i686' 'x86_64')
+url="http://tools.suckless.org/tabbed/"
+license=('MIT/X')
+depends=('libxft')
+makedepends=('git')
+provides=('tabbed')
+conflicts=('tabbed')
+source=("$_pkgname::git+https://github.com/tim-tx/tabbed.git")
+md5sums=('SKIP')
+
+pkgver() {
+  cd $_pkgname
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+prepare() {
+  if [[ -f $SRCDEST/config.h ]]; then
+    cp $SRCDEST/config.h $srcdir/$_pkgname/config.h
+  fi
+}
+
+build() {
+  cd $_pkgname
+  make PREFIX=/usr
+}
+
+package() {
+  cd $_pkgname
+  make DESTDIR="$pkgdir/" PREFIX=/usr install
+  install -Dm0644 LICENSE $pkgdir/usr/share/licenses/$pkgname/LICENSE
+}
+
+# vim:set ts=2 sw=2 et:
