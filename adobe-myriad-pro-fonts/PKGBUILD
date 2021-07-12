@@ -3,10 +3,11 @@ pkgname=adobe-myriad-pro-fonts
 pkgver=2.037
 pkgrel=1
 
-pkgdesc="Myriad Pro fonts from the Adobe Font Folio 11"
+pkgdesc="Adobe Myriad Pro fonts"
 arch=('any')
-url="https://www.adobe.com/products/fontfolio.html"
+url="https://fonts.adobe.com/fonts/myriad"
 license=('custom')
+conflicts=('acroread-fonts-systemwide')
 
 source=(
 	"local://MyriadPro-BlackCondIt.otf"

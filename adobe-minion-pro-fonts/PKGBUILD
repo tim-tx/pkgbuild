@@ -3,10 +3,11 @@ pkgname=adobe-minion-pro-fonts
 pkgver=2.030
 pkgrel=1
 
-pkgdesc="Minion Pro fonts from the Adobe Font Folio 11"
+pkgdesc="Adobe Minion Pro fonts"
 arch=('any')
-url="https://www.adobe.com/products/fontfolio.html"
+url="https://fonts.adobe.com/fonts/minion"
 license=('custom')
+conflicts=('acroread-fonts-systemwide')
 
 source=(
 	"local://MinionPro-BoldCapt.otf"
