@@ -1,0 +1,12 @@
+post_install() {
+    mktexlsr
+    updmap-sys --enable Map=MinionPro.map
+}
+
+post_upgrade() {
+    mktexlsr
+}
+
+post_remove() {
+    mktexlsr
+}

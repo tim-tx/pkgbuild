@@ -1,0 +1,40 @@
+# Maintainer: Tim Jones <tjones01@gmail.com>
+pkgname=latex-fontpro-minion-git
+
+pkgver=r134.165b4a7
+pkgrel=1
+
+pkgdesc="Package for building the Adobe Minion Pro fonts for LaTeX using the FontPro scripts."
+arch=('any')
+url="https://github.com/sebschub/FontPro"
+license=('custom')
+depends=('texlive-core')
+makedepends=('git' 'lcdf-typetools' 'adobe-minion-pro-fonts')
+
+source=("${pkgname}::git+https://github.com/sebschub/FontPro.git#branch=master" minionpro.maps)
+sha256sums=("SKIP" "a0a2ebb0e00cf6863d9926dc8e87e0e3fce1ea97ad32847cba0bf24514f7df45")
+
+pkgver() {
+    cd "$srcdir/${pkgname}"
+    printf "r%s.%s" $(git rev-list --count HEAD) $(git rev-parse --short HEAD)
+}
+
+prepare() {
+    cd "$srcdir/${pkgname}"
+    [[ -d otf ]] || mkdir otf
+    cp /usr/share/fonts/OTF/MinionPro-*.otf otf
+}
+
+build() {
+    cd "$srcdir/${pkgname}"
+    yes | ./scripts/makeall MinionPro
+}
+
+package() {
+    cd "$srcdir/${pkgname}"
+    yes | ./scripts/install "$pkgdir"/usr/share/texmf
+    install -Dm644 $srcdir/minionpro.maps "$pkgdir"/var/lib/texmf/arch/installedpkgs/minionpro.maps
+    echo "minionpro $(git rev-list --count HEAD)" > \
+         "$pkgdir"/var/lib/texmf/arch/installedpkgs/${pkgname}_${pkgver}-$pkgrel.pkgs
+    rm  $pkgdir/usr/share/texmf/ls-R
+}
