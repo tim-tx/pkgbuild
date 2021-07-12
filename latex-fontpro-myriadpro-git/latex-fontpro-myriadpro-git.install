@@ -1,0 +1,12 @@
+post_install() {
+    mktexlsr
+    updmap-sys --enable Map=MyriadPro.map
+}
+
+post_upgrade() {
+    mktexlsr
+}
+
+post_remove() {
+    mktexlsr
+}
