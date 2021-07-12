@@ -1,0 +1,29 @@
+pkgname=dpic-git
+_pkgname="${pkgname%-*}"
+pkgver=r42.c24db37
+pkgrel=1
+pkgdesc="An implementation of the pic \"little language,\" with support for LaTeX, PDF, SVG, Postscript, and xfig 3.2 output."
+arch=("i686" "x86_64")
+url="https://ece.uwaterloo.ca/~aplevich/dpic/"
+license=("BSD")
+makedepends=("git")
+provides=("${_pkgname}")
+source=("$pkgname::git+https://gitlab.com/aplevich/dpic.git")
+md5sums=("SKIP")
+
+pkgver() {
+  cd "$srcdir/$pkgname"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+build() {
+  cd "$srcdir/$pkgname"
+  make
+}
+
+package() {
+  cd "$srcdir/$pkgname"
+  make DESTDIR="$pkgdir/usr" install
+  install -Dm644 README $pkgdir/usr/share/doc/${_pkgname}/README
+  install -Dm644 Copyright.txt $pkgdir/usr/share/licenses/${_pkgname}/LICENSE
+}
