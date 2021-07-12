@@ -6,7 +6,7 @@
 # Contributor: Christoph Vigano <mail@cvigano.de>
 
 pkgname=st-timtx-git
-pkgver=r1130.71874a2
+pkgver=r1131.299e5ac
 pkgrel=1
 pkgdesc='A simple virtual terminal emulator for X.'
 arch=('i686' 'x86_64' 'armv7h')
