@@ -1,0 +1,54 @@
+pkgname=fontfont-meta-pro-fonts
+
+pkgver=7.504
+pkgrel=1
+
+pkgdesc="FontFont Meta Pro fonts from FontShop, excluding condensed & Georgian Book variants"
+arch=('any')
+url="https://www.fontshop.com/families/ff-meta"
+license=('custom')
+
+source=(
+	"local://MetaPro-BlackIta.otf"
+	"local://MetaPro-Black.otf"
+	"local://MetaPro-BoldIta.otf"
+	"local://MetaPro-Bold.otf"
+	"local://MetaPro-BookIta.otf"
+	"local://MetaPro-Book.otf"
+	"local://MetaPro-HairIta.otf"
+	"local://MetaPro-Hair.otf"
+	"local://MetaPro-LightIta.otf"
+	"local://MetaPro-Light.otf"
+	"local://MetaPro-MediIta.otf"
+	"local://MetaPro-Medi.otf"
+	"local://MetaPro-NormIta.otf"
+	"local://MetaPro-Norm.otf"
+	"local://MetaPro-ThinIta.otf"
+	"local://MetaPro-Thin.otf"
+)
+
+sha256sums=(
+	"3090183af8c091eac1c03e7242b09a994821a2d97b2e57f52f493e654b56087b"
+	"f1f871e58fe7acaca24760aa4dc3c705dd23c7d2816915c8cb9f5a608e9e0772"
+	"028aa22c7ccfec9add7779bdf0798ffde8be262ca4cc2e2f3b4d13d4673f6c46"
+	"d8c61b98d928fe6c11d5d0027822be6e467779edd32c76e89de7bdf8db735648"
+	"d1f7ac721a15b00b750ef3bfbecd6ec233093a5243d9531615c06adf69136e9a"
+	"367abab0db5c7fe048e558c374617f945a4a53749908b84ca4e0d3cb48370533"
+	"6fa4f8063ad15ae9ec9e52744ee18b652995a5ee601c953560580f87750db4b7"
+	"76cd15d5dbd5872e234e74d553c10760db9bf9f49a1181e9fb38aa6c9b44fd2e"
+	"fbb2eda247570d130cd26b5b35c9fac8df1eaf91a60de9291a0a5f460feb46aa"
+	"d9e74c335c67dd947d425dae22c55f1c53a52a8816925471b70b53c406d0dfdd"
+	"c8efb46eb71307f637e67fc28f1449577b9c6967a541998c1b56330e589a6c58"
+	"39c3bea2f11b8e4532aeb187fc424a34d8f6bebb30cd39e23bea7a401738fae0"
+	"100e959243bec4b9f16e05d9fdafa5ed242c66c526f0dff81ac943ff109e2901"
+	"ae7a07cb764425b054678c65a117c1a03162788b3a87670a26126014af6d68f7"
+	"8324080cecbe0a8db7722128f9116e4c359cb434bf62b7d3c10ffdea7e35e561"
+	"5f559bab7a13e34519ee1262f4d48dba5eb93233358fc8bac17050f1550c9335"
+)
+
+package() {
+  cd ${srcdir}
+
+  install -dm755 "${pkgdir}/usr/share/fonts/OTF"
+  install -Dpm644 *.otf "${pkgdir}/usr/share/fonts/OTF/"
+}
