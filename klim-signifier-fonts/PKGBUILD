@@ -1,0 +1,50 @@
+pkgname=klim-signifier-fonts
+
+pkgver=1.004
+pkgrel=1
+
+pkgdesc="Klim Type Foundary Signifier fonts"
+arch=('any')
+url="https://klim.co.nz/retail-fonts/signifier/"
+license=('custom')
+
+source=(
+	"local://Signifier-BlackItalic.otf"
+	"local://Signifier-Black.otf"
+	"local://Signifier-BoldItalic.otf"
+	"local://Signifier-Bold.otf"
+	"local://Signifier-ExtralightItalic.otf"
+	"local://Signifier-Extralight.otf"
+	"local://Signifier-LightItalic.otf"
+	"local://Signifier-Light.otf"
+	"local://Signifier-MediumItalic.otf"
+	"local://Signifier-Medium.otf"
+	"local://Signifier-RegularItalic.otf"
+	"local://Signifier-Regular.otf"
+	"local://Signifier-ThinItalic.otf"
+	"local://Signifier-Thin.otf"
+)
+
+sha256sums=(
+	"d76d47fe0bb3faa2d1767a9cb4713596d8cf3aa518b745aecabf9e0bcfc58512"
+	"02e85fbcf612d6d38c1eca308041aaa65c2e37991704c8dfb41c23686b01a9ee"
+	"73e0d5fc50c3c01b26710b4974b801e98e130ac08a4b05c7ec52cf217ef43038"
+	"24eb1a417b361752599de7f94b2f502709a7889c3a3c1537d6448e3508d34de6"
+	"7bd5320e150394672d98258013dc42692c0246bfe7ca5deae1a82bbdc80c94dc"
+	"eba3e4660231b87fbef6ae2a3cceaa76a8f93ceefdbbb064c8f6ea8c60d40816"
+	"810fcad302cb92a960e34a4aeadb42f64b95cc57ac66e1c021d3ebd4e0dbeaf8"
+	"694ded0f46eb8e10d185b168a81907dbec31d0e7b02123ab770bdf9fc5147b44"
+	"9506103432bdf62cd39f47073db101e8f49eb65c7dce783f5d9c4bed02975b50"
+	"64acc901e334832384fe2de89a6f965dc857ce572b75bfd2f088f1dce8f09600"
+	"13289b8fe1f2bacb8f3e9f7d75d69f566271a37efac5ecbb241c19fdf3006b82"
+	"60b28dcca6a5165886b24a3ec61796a1b3410142e9f8f7e2926a56606e0b152a"
+	"8b27d1f7ee9e66d2469c3c06ec14ad57ce74156cb537e042e88ea13b136be80d"
+	"8e9b6d934cb73eadee6ffb42e3a8410005d6cc57dda71f3d7208648a648fc134"
+)
+
+package() {
+  cd ${srcdir}
+
+  install -dm755 "${pkgdir}/usr/share/fonts/OTF"
+  install -Dpm644 *.otf "${pkgdir}/usr/share/fonts/OTF/"
+}
