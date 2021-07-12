@@ -1,0 +1,40 @@
+# Maintainer: Tim Jones <tjones01@gmail.com>
+pkgname=latex-fontpro-myriad-git
+
+pkgver=r134.165b4a7
+pkgrel=1
+
+pkgdesc="Package for building the Adobe Myriad Pro fonts for LaTeX using the FontPro scripts."
+arch=('any')
+url="https://github.com/sebschub/FontPro"
+license=('custom')
+depends=('texlive-core')
+makedepends=('git' 'lcdf-typetools' 'adobe-myriad-pro-fonts')
+
+source=("${pkgname}::git+https://github.com/sebschub/FontPro.git#branch=master" myriadpro.maps)
+sha256sums=("SKIP" "5f634ec8c5ab4342fd0c5f2594656e0703e3893dc35e35c20bbc43659077829d")
+
+pkgver() {
+    cd "$srcdir/${pkgname}"
+    printf "r%s.%s" $(git rev-list --count HEAD) $(git rev-parse --short HEAD)
+}
+
+prepare() {
+    cd "$srcdir/${pkgname}"
+    [[ -d otf ]] || mkdir otf
+    cp /usr/share/fonts/OTF/MyriadPro-*.otf otf
+}
+
+build() {
+    cd "$srcdir/${pkgname}"
+    yes | ./scripts/makeall MyriadPro
+}
+
+package() {
+    cd "$srcdir/${pkgname}"
+    yes | ./scripts/install "$pkgdir"/usr/share/texmf
+    install -Dm644 $srcdir/myriadpro.maps "$pkgdir"/var/lib/texmf/arch/installedpkgs/myriadpro.maps
+    echo "myriadpro $(git rev-list --count HEAD)" > \
+         "$pkgdir"/var/lib/texmf/arch/installedpkgs/${pkgname}_${pkgver}-$pkgrel.pkgs
+    rm  $pkgdir/usr/share/texmf/ls-R
+}
