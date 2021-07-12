@@ -1,0 +1,40 @@
+# Maintainer: Tim Jones <tjones01@gmail.com>
+pkgname=latex-fontpro-cronos-git
+
+pkgver=r134.165b4a7
+pkgrel=1
+
+pkgdesc="Package for building the Adobe Cronos Pro fonts for LaTeX using the FontPro scripts."
+arch=('any')
+url="https://github.com/sebschub/FontPro"
+license=('custom')
+depends=('texlive-core')
+makedepends=('git' 'lcdf-typetools' 'adobe-cronos-pro-fonts')
+
+source=("${pkgname}::git+https://github.com/sebschub/FontPro.git#branch=master" cronospro.maps)
+sha256sums=("SKIP" "0ef6f80536d01b1e46d61bb84c5d3a37929b5f14f65aa2cf7ebc8155ff9468ff")
+
+pkgver() {
+    cd "$srcdir/${pkgname}"
+    printf "r%s.%s" $(git rev-list --count HEAD) $(git rev-parse --short HEAD)
+}
+
+prepare() {
+    cd "$srcdir/${pkgname}"
+    [[ -d otf ]] || mkdir otf
+    cp /usr/share/fonts/OTF/CronosPro-*.otf otf
+}
+
+build() {
+    cd "$srcdir/${pkgname}"
+    yes | ./scripts/makeall CronosPro
+}
+
+package() {
+    cd "$srcdir/${pkgname}"
+    yes | ./scripts/install "$pkgdir"/usr/share/texmf
+    install -Dm644 $srcdir/cronospro.maps "$pkgdir"/var/lib/texmf/arch/installedpkgs/cronospro.maps
+    echo "cronospro $(git rev-list --count HEAD)" > \
+         "$pkgdir"/var/lib/texmf/arch/installedpkgs/${pkgname}_${pkgver}-$pkgrel.pkgs
+    rm  $pkgdir/usr/share/texmf/ls-R
+}
