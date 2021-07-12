@@ -1,0 +1,15 @@
+pkgbase = circuit_macros
+	pkgdesc = Tools for drawing electric circuits and other line diagrams.
+	pkgver = 9.6
+	pkgrel = 1
+	url = https://ece.uwaterloo.ca/~aplevich/Circuit_macros/
+	install = circuit_macros.install
+	arch = any
+	license = GPL
+	depends = texlive-core
+	depends = dpic
+	depends = m4
+	source = https://mirrors.ctan.org/graphics/circuit_macros.zip
+	sha256sums = 970d10a4dc25006f72fc19f34b99d67340a852248ccd189c68a3dbfd5fc690bf
+
+pkgname = circuit_macros
