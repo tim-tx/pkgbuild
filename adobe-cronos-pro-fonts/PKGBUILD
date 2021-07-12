@@ -1,0 +1,87 @@
+pkgname=adobe-cronos-pro-fonts
+
+pkgver=2.040
+pkgrel=1
+
+pkgdesc="Adobe Cronos Pro fonts"
+arch=('any')
+url="https://fonts.adobe.com/fonts/cronos"
+license=('custom')
+conflicts=('acroread-fonts-systemwide')
+
+source=(
+    "local://CronosPro-BoldCaptIt.otf"
+    "local://CronosPro-BoldCapt.otf"
+    "local://CronosPro-BoldDispIt.otf"
+    "local://CronosPro-BoldDisp.otf"
+    "local://CronosPro-BoldIt.otf"
+    "local://CronosPro-Bold.otf"
+    "local://CronosPro-BoldSubhIt.otf"
+    "local://CronosPro-BoldSubh.otf"
+    "local://CronosPro-CaptIt.otf"
+    "local://CronosPro-Capt.otf"
+    "local://CronosPro-DispIt.otf"
+    "local://CronosPro-Disp.otf"
+    "local://CronosPro-Italic.otf"
+    "local://CronosPro-LtCaptIt.otf"
+    "local://CronosPro-LtCapt.otf"
+    "local://CronosPro-LtDispIt.otf"
+    "local://CronosPro-LtDisp.otf"
+    "local://CronosPro-LtIt.otf"
+    "local://CronosPro-Lt.otf"
+    "local://CronosPro-LtSubhIt.otf"
+    "local://CronosPro-LtSubh.otf"
+    "local://CronosPro-Regular.otf"
+    "local://CronosPro-SemiboldCaptIt.otf"
+    "local://CronosPro-SemiboldCapt.otf"
+    "local://CronosPro-SemiboldDispIt.otf"
+    "local://CronosPro-SemiboldDisp.otf"
+    "local://CronosPro-SemiboldIt.otf"
+    "local://CronosPro-Semibold.otf"
+    "local://CronosPro-SemiboldSubhIt.otf"
+    "local://CronosPro-SemiboldSubh.otf"
+    "local://CronosPro-SubhIt.otf"
+    "local://CronosPro-Subh.otf"
+)
+
+sha256sums=(
+    "8f77f0cf3569dd39ba682a2be91336ec0deb3c96962938ce6b20a584953a228b"
+    "1a735d6b76533e95ba35561a04ba6579bcf7cc1e13b8403b0c96e7ef5bfb9515"
+    "2378afa3c912850d6b0281cb1abf3cd5ab2566d707fcb7f27e8b35bc0a505b2a"
+    "fc84969485ffbb28f2bb0e9a0c9aa3dab8030da7ec07b4fb690d0070b2810be1"
+    "ae1ecdc97765f9db09b2ca279812514f21a35615f94f8e4c2748ff638c5a57be"
+    "a054faf73b7b49d2df77fcdc00e3bf3e7b22ca7b418e825b5bcb3c55053bc08b"
+    "3f6a27653abfc236469bdab6097585eb346156b68e91c9320891ee5f2419698b"
+    "b9f90dd345ab7459a4d8ab5257060978e8f85b3372c9a9e14ce56b5b73c29649"
+    "a76d16ca284b840ccbf92472b9f7eb112468d035161cae6d07c26c9f1acc7eee"
+    "d7f54b355ac988b8b53420ad4b22563c6e93e9be01780ddf6d3b9568aa0bce72"
+    "673b48b10272de32e1c574d9cab5e287121fa38a51cb88db377e025f2297d802"
+    "9f81e90b4e926e71f6bd2d28001e86fb301115a5c65a435933431545b0c7aa3e"
+    "deefc3a2617572fea8d36d700a7efeb8580ec558a88a730bfc39199f372c1233"
+    "74a175470ddff1c4a59450807327538aaa76793377a5ecc9925b071f7554bbb3"
+    "5128d95a0829de4a559f9e48f8c83748e4406cdc5e0f42398d553b2754087518"
+    "2236a08d6c702423cc04df17a5bb57f6e7a702db007f7ff7bf1c5bf234b074c6"
+    "e6906db8d7476fcff4d3322fd3194add6aaadb2a61f09bb046b3442945f3b9dc"
+    "e7049bed71db651106bad0b490e4851fe2b9ef63f39eb5d66a2ab12a6a5125d4"
+    "dee77d462b0448297472fbb22bdb70f675204ccfbdc9b40ded2124f60af14cd1"
+    "7f72a54fa4db9c16019742c1bba35607a3e46a13b408f4cae4997cbfd903b01a"
+    "dda315012495f38f2526418551416e3a6b640a07211c2143bdbb4f4df9f68947"
+    "6dd8376cc43c6f60eb3255907cd44c3946ef4add81e3ee62f942237949facd22"
+    "86f23f37ff93517e4b9815b138cc700eb82f71597462e4be9578a21bd9d53d4a"
+    "f3373bbd5f535fe8c79329b9a8494d3dd00417ee0221d8942c18b988026bd76b"
+    "1a9ce3c5bb5cc34735cbe975b27313c37d3f568ad8c6e6cce1340d88660c55e9"
+    "0a329a18f6d1f499503ba2c846fd432f7cc7baa965ffc5042e3f8f615dd261da"
+    "d4ba5e160b9fcf0bb3d2e5626625f3a02b888478bc4e8bdf9c526790f2c4f122"
+    "f5cb722165db0e7a04aaa99d457f90d81e3299620fabd06cc2414721a05edb8c"
+    "a95e2ac469fd4b3d589df04888b935329ba895f247ab00016d530b90493f3556"
+    "b0354dd90dac2a94344bbaa096ab566804df8bca00f05a264a42354ce42fa5c8"
+    "b5aa45031c18a8ec79bb1713c3acf591a94268f79f852a9225f597d4d4a901fd"
+    "063d02a16ff11541d48a5f036219866a0ddec47b50b977348ec83b19e2efd03d"
+)
+
+package() {
+  cd ${srcdir}
+
+  install -dm755 "${pkgdir}/usr/share/fonts/OTF"
+  install -Dpm644 *.otf "${pkgdir}/usr/share/fonts/OTF/"
+}
