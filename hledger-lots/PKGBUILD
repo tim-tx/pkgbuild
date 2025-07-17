@@ -1,0 +1,26 @@
+pkgbase='hledger-lots'
+pkgname=('hledger-lots')
+_module='hledger_lots'
+pkgver='0.4.2'
+pkgrel=1
+pkgdesc=""
+url=""
+depends=('python')
+makedepends=('python-setuptools')
+license=('unknown')
+arch=('any')
+source=("https://files.pythonhosted.org/packages/source/${_module::1}/$_module/${_module/-/_}-$pkgver.tar.gz")
+sha256sums=('81dbe70e0075732d112a33691728055026bcc2e807d36d13df900bb4b5e3dd02')
+
+build() {
+    cd "${srcdir}/${_module}-${pkgver}"
+    # python setup.py build
+    python -m build --wheel --no-isolation
+}
+
+package() {
+    depends+=()
+    cd "${srcdir}/${_module}-${pkgver}"
+    # python setup.py install --root="${pkgdir}" --optimize=1 --skip-build
+    python -m installer --destdir="$pkgdir" dist/*.whl
+}
