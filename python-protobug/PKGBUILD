@@ -1,0 +1,21 @@
+_pkgname=protobug
+pkgname=python-protobug
+pkgver=0.3.0
+pkgrel=1
+pkgdesc='A pythonic protobuf library using dataclasses and enums'
+arch=(any)
+url='https://github.com/yt-dlp/protobug'
+license=(Unlicense)
+makedepends=(python-build python-installer python-wheel)
+source=($pkgname-$pkgver.tar.gz::https://github.com/yt-dlp/${_pkgname}/releases/download/$pkgver/${_pkgname}-$pkgver.tar.gz)
+sha256sums=('64666a3053792be3a4d917f8db47a1828e35aa6ca5d948ed90d9bcb61cef84f2')
+
+build() {
+    cd "${_pkgname}-${pkgver}"
+    python -m build --wheel --no-isolation
+}
+
+package() {
+    cd "${_pkgname}-${pkgver}"
+    python -m installer --destdir="$pkgdir" dist/*.whl
+}
